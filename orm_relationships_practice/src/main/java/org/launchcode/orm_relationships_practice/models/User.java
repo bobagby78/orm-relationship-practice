@@ -1,21 +1,25 @@
 package org.launchcode.orm_relationships_practice.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
 
     @Id
+    @GeneratedValue
     private int id;
 
     private String firstName;
     private String lastName;
 
-    @ManyToOne
+    @ManyToOne //many users can come from one location. check the location side for further details
     private Location location;
     private String email;
+
+    @OneToMany //one user can make many posts. the following will list the many posts by one user.
+    private List<Post> posts = new ArrayList<>();
 
     public User(int id){
         this.id = id;

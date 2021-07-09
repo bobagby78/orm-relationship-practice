@@ -15,7 +15,7 @@ public class Post{
 
     private Date postDate;
 
-    @ManyToOne
+    @ManyToOne //Many posts made by one user. Check the user side for further details
     private User user;
     private String details;
 
